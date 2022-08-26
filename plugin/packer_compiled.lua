@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Miguel\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "C:\\Users\\Miguel\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
@@ -128,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Miguel\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "C:\\Users\\Miguel\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 

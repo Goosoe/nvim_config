@@ -19,6 +19,11 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   -- LSP --
   use 'neovim/nvim-lspconfig'
+  -- SURROUND --
+  use 'tpope/vim-surround'
+
+  -- COMMENT --
+  use 'numToStr/Comment.nvim'
 
   -- Completion --
   use "hrsh7th/nvim-cmp"          -- Completion engine
