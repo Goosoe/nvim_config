@@ -13,7 +13,7 @@ nnoremap("<leader>qq", "<cmd>w<CR><cmd>bd!<CR>")            -- save and close cu
 nnoremap("<leader>QQ", "<cmd>bd!<CR>")                      -- close current buffer WITHOUT saving
 nnoremap("<leader>p", "\"*p<CR>")                           -- paste from clipboard reg - normalmode
 inoremap("<leader>p", "<C-r>*<CR>")                         -- paste from clipboard reg - insertmode 
-nnoremap("<leader>py", "\"0p<CR>")                           -- paste from clipboard reg - normalmode
-inoremap("<leader>py", "<C-r>0<CR>")                         -- paste from clipboard reg - insertmode 
-nnoremap("<leader>pd", "\"1p<CR>")                           -- paste from clipboard reg - normalmode
-inoremap("<leader>pd", "<C-r>1<CR>")                         -- paste from clipboard reg - insertmode 
+nnoremap("<leader>py", "\"0p<CR>")                          -- paste from yank reg - normalmode
+inoremap("<leader>py", "<C-r>0<CR>")                        -- paste from yank reg - insertmode 
+nnoremap("<leader>pd", "\"1p<CR>")                          -- paste from del reg - normalmode
+inoremap("<leader>pd", "<C-r>1<CR>")                        -- paste from del reg - insertmode 
