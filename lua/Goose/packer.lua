@@ -6,8 +6,10 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
   -- themes --
   use 'folke/tokyonight.nvim'
+
   -- telescope --
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -15,10 +17,13 @@ return require('packer').startup(function(use)
  -- bruxisma fixup https://github.com/nvim-telescope/telescope-fzf-native.nvim/pull/78
  -- This branch/PR fixes the windows make. When not working remove the above comment
   use {'bruxisma/telescope-fzf-native.nvim', run = 'make' , branch = 'bruxisma/fixup-cmake'}
+
   -- tree-sitter --
   use 'nvim-treesitter/nvim-treesitter'
+
   -- LSP --
   use 'neovim/nvim-lspconfig'
+
   -- SURROUND --
   use 'tpope/vim-surround'
 
