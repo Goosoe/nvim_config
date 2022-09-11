@@ -13,10 +13,7 @@ return require('packer').startup(function(use)
   -- telescope --
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'
- -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
- -- bruxisma fixup https://github.com/nvim-telescope/telescope-fzf-native.nvim/pull/78
- -- This branch/PR fixes the windows make. When not working remove the above comment
-  use {'bruxisma/telescope-fzf-native.nvim', run = 'make' , branch = 'bruxisma/fixup-cmake'}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- tree-sitter --
   use 'nvim-treesitter/nvim-treesitter'
@@ -36,5 +33,7 @@ return require('packer').startup(function(use)
   use "saadparwaiz1/cmp_luasnip"  -- Snipper completion source
   use "hrsh7th/cmp-buffer"        -- Buffer completion source
   use "hrsh7th/cmp-nvim-lsp"      -- LSP completion source
-
+  --
+  -- Terminal --
+  use "numToStr/FTerm.nvim"
 end)

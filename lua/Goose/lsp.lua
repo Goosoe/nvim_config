@@ -88,7 +88,10 @@ if 1 == vim.fn.executable "clangd" then
             --"--clang-tidy"
         },
         capabilities = capabilities,
-        on_attach = on_attach
+        on_attach = on_attach,
+        filetype = {
+            "c", "cpp", "objc", "objcpp", "cuda", "glsl"
+        }
     })
 end
 
