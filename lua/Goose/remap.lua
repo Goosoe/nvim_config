@@ -7,12 +7,13 @@ nnoremap("<leader>ff", "<cmd>Telescope find_files<CR>")     -- file finder
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")      -- string finder
 nnoremap("<leader><tab>", "<cmd>Telescope buffers<CR>")        -- show buffers
 nnoremap("<leader>ft", "<cmd>Telescope help_tags<CR>")      -- show tags
+nnoremap("<leader>wp", "<cmd>Telescope projects<CR>")      -- show tags
 
 -- DEFAULT COMMANDS --
 nnoremap("<C-d>", "<C-d>zz")                        -- center line when going down
 nnoremap("<C-u>", "<C-u>zz")                        -- center line when going up
 
-nnoremap("<leader>ee", "<cmd>Ex<CR>")                       -- open netrw
+nnoremap("<leader>ee", "<cmd>NvimTreeToggle<CR>")                       -- open netrw
 nnoremap("<leader>qq", "<cmd>w<CR><cmd>bd!<CR>")            -- save and close current buffer
 nnoremap("<leader>QQ", "<cmd>bd!<CR>")                      -- close current buffer WITHOUT saving
 

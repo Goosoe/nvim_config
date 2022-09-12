@@ -7,15 +7,15 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- themes --
+  -- THEMES --
   use 'folke/tokyonight.nvim'
 
-  -- telescope --
+  -- TELESCOPE --
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
-  -- tree-sitter --
+  -- TREESITTER --
   use 'nvim-treesitter/nvim-treesitter'
 
   -- LSP --
@@ -27,13 +27,37 @@ return require('packer').startup(function(use)
   -- COMMENT --
   use 'numToStr/Comment.nvim'
 
-  -- Completion --
+  -- COMPLETION --
   use "hrsh7th/nvim-cmp"          -- Completion engine
   use "L3MON4D3/LuaSnip"          -- Snippet engine (required for nvim-cmp)
   use "saadparwaiz1/cmp_luasnip"  -- Snipper completion source
   use "hrsh7th/cmp-buffer"        -- Buffer completion source
   use "hrsh7th/cmp-nvim-lsp"      -- LSP completion source
-  --
-  -- Terminal --
+
+  -- TERMINAL --
   use "numToStr/FTerm.nvim"
+
+  -- STATUS LINE --
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons'}
+  }
+
+  -- FILE TREE --
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icons
+      },
+      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+  --
+  -- TAB BAR -- 
+  use {
+      'romgrk/barbar.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  -- PROJECT --
+  use "ahmedkhalf/project.nvim"
 end)
