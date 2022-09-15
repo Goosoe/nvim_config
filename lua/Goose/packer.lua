@@ -58,6 +58,20 @@ return require('packer').startup(function(use)
       requires = {'kyazdani42/nvim-web-devicons'}
   }
 
-  -- PROJECT --
-  use "ahmedkhalf/project.nvim"
+  -- WORKSPACES --
+  use "natecraddock/workspaces.nvim"
+  use({
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      module = "persistence",
+      config = function()
+          require("persistence").setup()
+      end,
+  })
+
+  -- DEBUG --
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "theHamsta/nvim-dap-virtual-text", requires = {"mfussenegger/nvim-dap"} }
+  use { "nvim-telescope/telescope-dap.nvim", requires = {"mfussenegger/nvim-dap"} }
 end)

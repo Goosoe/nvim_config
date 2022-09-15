@@ -23,4 +23,7 @@ require("nvim-tree").setup({
     enable = true,
     update_root = true
   },
+   -- open_on_setup = false,
+   -- open_on_setup_file = false
 })
+
