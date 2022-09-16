@@ -1,45 +1,46 @@
-local dap = require('dap')
-dap.adapters.lldb = {
+local dap, dapui = require('dap'), require("dapui")
+
+-- since we're using Mingw in windows (uses gcc), we must use the gcc debug tool as it can read 
+-- the outputed debug symbols
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
   type = 'executable',
-  command = "C:\\Program Files\\LLVM\\bin\\lldb-vscode.exe", -- adjust as needed, must be absolute path
-  name = 'lldb'
+  command = 'C:\\Users\\Miguel\\randomRepos\\cpptools-win64\\extension\\debugAdapters\\bin\\OpenDebugAD7.exe',
+  options = {
+    detached = false
+  }
 }
 dap.configurations.cpp = {
   {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '\\bin\\Debug\\', 'file')
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
+    stopAtEntry = true,
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = 'C:\\tools\\msys64\\mingw64\\bin\\gdb.exe',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
   },
 }
-
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
-
   env = function()
     local variables = {}
     for k, v in pairs(vim.fn.environ()) do
       table.insert(variables, string.format("%s=%s", k, v))
     end
     return variables
-  end,
+  end
 
 -- DAP UI --
 require("dapui").setup({
@@ -118,3 +119,14 @@ require("nvim-dap-virtual-text").setup {
                                            -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 }
 
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end

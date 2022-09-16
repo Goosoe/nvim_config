@@ -17,4 +17,18 @@ require'FTerm'.setup({
     ---Transparency of the floating window. See `:h winblend`
     ---@type integer
     blend = 0,
+   ---Callback invoked when the terminal exits.
+    ---See `:h jobstart-options`
+    ---@type fun()|nil
+    on_exit = nil,
+
+    ---Callback invoked when the terminal emits stdout data.
+    ---See `:h jobstart-options`
+    ---@type fun()|nil
+    on_stdout = nil,
+
+    ---Callback invoked when the terminal emits stderr data.
+    ---See `:h jobstart-options`
+    ---@type fun()|nil
+    on_stderr = nil,
 })

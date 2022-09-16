@@ -15,7 +15,7 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
@@ -23,7 +23,6 @@ require("nvim-tree").setup({
     enable = true,
     update_root = true
   },
-   -- open_on_setup = false,
-   -- open_on_setup_file = false
+  hijack_netrw = false
 })
 
