@@ -13,7 +13,10 @@ return require('packer').startup(function(use)
   -- TELESCOPE --
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  --use choco install make or have msys2 make. Must have make in path
+  --else, use cmake and verify if build with cmake was successful. The command below alreay gave me problems
+  --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- TREESITTER --
   use 'nvim-treesitter/nvim-treesitter'
