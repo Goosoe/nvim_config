@@ -24,6 +24,13 @@ return require('packer').startup(function(use)
   -- LSP --
   use 'neovim/nvim-lspconfig'
 
+  -- MASON --
+use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+}
+
   -- SURROUND --
   use 'tpope/vim-surround'
 

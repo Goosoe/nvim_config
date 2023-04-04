@@ -5,7 +5,7 @@ local dap, dapui = require('dap'), require("dapui")
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = 'C:\\Users\\Miguel\\randomRepos\\cpptools-win64\\extension\\debugAdapters\\bin\\OpenDebugAD7.exe',
+  command = 'C:\\Users\\Goose\\publicRepos\\cpptools-win64\\extension\\debugAdapters\\bin\\OpenDebugAD7.exe',
   options = {
     detached = false
   }
