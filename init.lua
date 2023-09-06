@@ -1,2 +1,2 @@
-require("Goose.packer")
+require("Goose.lazy")
 require("Goose")
