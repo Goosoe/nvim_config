@@ -1,31 +1,20 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
 {
-    --THEME
-    --{
-    --    "folke/tokyonight.nvim",
-    --    lazy = false,
-    --    priority = 1000,
-    --    opts = {},
-    --},
-    --{
-    --    --"rebelot/kanagawa.nvim",
-    --},
     {
         "ellisonleao/gruvbox.nvim", priority = 1000
-        --"rebelot/kanagawa.nvim",
     },
     -- Telescope (plus Extentions)
     -- Notes: install ripgrep and fd for live-grep support
@@ -42,15 +31,15 @@ require("lazy").setup(
         -- main = require('user.plugins.telescope'),
     },
 
-      -- Treesitter
+    -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         build = function() require('nvim-treesitter.install').update({
-                with_sync = true
-            }) end,
+            with_sync = true
+        }) end,
         -- main = require('user.plugins.treesitter'),
     },
-        -- LSP
+    -- LSP
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -66,51 +55,58 @@ require("lazy").setup(
         dependencies = {
             "saadparwaiz1/cmp_luasnip",  -- Snipper completion source
             "hrsh7th/cmp-buffer",        -- Buffer completion source
+            "hrsh7th/cmp-path",          -- Filesystem paths
+            "hrsh7th/cmp-nvim-lua",      -- LUA specific completion
             "hrsh7th/cmp-nvim-lsp",      -- LSP completion source
+            "L3MON4D3/LuaSnip",
         },
         -- main = require('user.plugins.nvim-cmp'),
     },          -- Completion engine
     -- Snippet engine (required for nvim-cmp)
-    {
-        "L3MON4D3/LuaSnip",
-        -- main = require('user.plugins.luasnip'),
-    },
-    "rafamadriz/friendly-snippets",
+    -- {
+        --     "L3MON4D3/LuaSnip",
+        --     -- main = require('user.plugins.luasnip'),
+        -- },
 
-    --TERMINAL
-    {
-        "numToStr/FTerm.nvim"
-    },
-     -- Formatting / Linting
-    {
-        "mhartington/formatter.nvim",
-        -- main = require('user.plugins.formatter'),
-    },
-    {
-        "mfussenegger/nvim-lint",
-        -- main = require('user.plugins.nvim-lint'),
-    },
-    -- Navigator
-    {
-    	"kyazdani42/nvim-tree.lua",
-    		dependencies = {"kyazdani42/nvim-web-devicons"}, -- optional, for file icons
-    },
-    -- Workspace
-    {
-        "natecraddock/workspaces.nvim"
-    },
-    {'romgrk/barbar.nvim',
-        dependencies = {
-            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-            --'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        {
+            "rafamadriz/friendly-snippets",
         },
-        init = function() vim.g.barbar_auto_setup = false end,
-            opts = {
-                -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-                -- animation = true,
-                -- insert_at_start = true,
-                -- …etc.
+        --
+        --TERMINAL
+        {
+            "numToStr/FTerm.nvim"
+        },
+        -- Formatting / Linting
+        {
+            "mhartington/formatter.nvim",
+            -- main = require('user.plugins.formatter'),
+        },
+        {
+            "mfussenegger/nvim-lint",
+            -- main = require('user.plugins.nvim-lint'),
+        },
+        -- Navigator
+        {
+            "kyazdani42/nvim-tree.lua",
+            dependencies = {"kyazdani42/nvim-web-devicons"}, -- optional, for file icons
+        },
+        -- Workspace
+        {
+            "natecraddock/workspaces.nvim"
+        },
+        {
+            'romgrk/barbar.nvim',
+            dependencies = {
+                'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+                --'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
             },
+        init = function() vim.g.barbar_auto_setup = false end,
+        opts = {
+            -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+            -- animation = true,
+            -- insert_at_start = true,
+            -- …etc.
+        },
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -121,16 +117,19 @@ require("lazy").setup(
     {
         "mfussenegger/nvim-dap"
     },
+
     {
         "rcarriga/nvim-dap-ui", 
-            dependencies = {"mfussenegger/nvim-dap"} 
+        dependencies = {"mfussenegger/nvim-dap"} 
     },
-    { 
+
+    {
         "theHamsta/nvim-dap-virtual-text",
-            dependencies = {"mfussenegger/nvim-dap"}
+        dependencies = {"mfussenegger/nvim-dap"}
     },
-    { 
+
+    {
         "nvim-telescope/telescope-dap.nvim", 
-            dependencies = {"mfussenegger/nvim-dap"} 
+        dependencies = {"mfussenegger/nvim-dap"} 
     }
 })

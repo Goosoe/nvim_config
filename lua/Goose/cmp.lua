@@ -26,16 +26,20 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item.
     },
     sources = cmp.config.sources({
+        { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
+        { name = 'path' },
         { name = 'luasnip' },
-        { name = 'buffer', keyword_length = 3 },
+        { name = 'buffer', keyword_length = 5 },
     }),
     formatting = {
         format = function(entry, vim_item)
             vim_item.menu = ({
-                buffer = "[Buffer]",
+                nvim_lua = "[API]",
                 nvim_lsp = "[LSP]",
-                luasnip = "[LuaSnip]",
+                path = "[Path]",
+                buffer = "[Buff]",
+                luasnip = "[Snip]",
             })[entry.source.name]
             return vim_item
         end
