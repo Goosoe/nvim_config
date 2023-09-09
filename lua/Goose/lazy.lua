@@ -14,11 +14,18 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
 {
     --THEME
+    --{
+    --    "folke/tokyonight.nvim",
+    --    lazy = false,
+    --    priority = 1000,
+    --    opts = {},
+    --},
+    --{
+    --    --"rebelot/kanagawa.nvim",
+    --},
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
+        "ellisonleao/gruvbox.nvim", priority = 1000
+        --"rebelot/kanagawa.nvim",
     },
     -- Telescope (plus Extentions)
     -- Notes: install ripgrep and fd for live-grep support
@@ -89,7 +96,7 @@ require("lazy").setup(
     		dependencies = {"kyazdani42/nvim-web-devicons"}, -- optional, for file icons
     },
     -- Workspace
-    { 
+    {
         "natecraddock/workspaces.nvim"
     },
     {'romgrk/barbar.nvim',
