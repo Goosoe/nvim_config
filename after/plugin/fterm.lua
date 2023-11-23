@@ -6,11 +6,11 @@ require'FTerm'.setup({
     },
     ---Filetype of the terminal buffer
     ---@type string
-    ft = 'FTerm',
+    cmd = 'powershell',
     ---Command to run inside the terminal
     ---NOTE: if given string[], it will skip the shell and directly executes the command
     ---@type fun():(string|string[])|string|string[]
-    cmd = "powershell",
+    -- cmd = "foot",
     ---Highlight group for the terminal. See `:h winhl`
     ---@type string
     hl = 'Normal',

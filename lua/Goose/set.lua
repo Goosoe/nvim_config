@@ -14,5 +14,6 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.smartindent = true
 vim.opt.mouse = "a"
+vim.opt.hlsearch = false
 
 vim.g.mapleader = " "

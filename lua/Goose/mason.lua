@@ -44,7 +44,7 @@ local servers = {
     -- IMPORTANT: FOR .NET 7.0, you must install csharp_ls with at least version 0.6. RIGHT NOW THE DEFAULT INSTALLED IS 0.5.
     -- USE :MasonInstall csharp-language-server@0.7.0 TO MANUALLY INSTALL
     --
-    csharp_ls = {},
+    --csharp_ls = {},
     lua_ls = {
         Lua = {
             runtime = {

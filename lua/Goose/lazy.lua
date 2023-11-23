@@ -131,5 +131,9 @@ require("lazy").setup(
     {
         "nvim-telescope/telescope-dap.nvim", 
         dependencies = {"mfussenegger/nvim-dap"} 
+    },
+    -- TRANSPARENCY
+    {
+        "xiyaowong/transparent.nvim"
     }
 })
